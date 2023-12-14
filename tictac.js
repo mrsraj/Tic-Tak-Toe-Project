@@ -5,7 +5,7 @@ let msgContainer = document.querySelector('.msg-container');
 let msg = document.querySelector('#msg');
 
 let turn0 = true
-
+//Winning Pattern in 2D Array formate.
 const winPatterns = [
     [0, 1, 2],
     [0, 3, 6],
@@ -17,12 +17,15 @@ const winPatterns = [
     [6, 7, 8]
 ];
 
+
+// Game Reset functionality.
 const resetGame = () => {
     turn0 = true;
     msgContainer.classList.add("hide");
     enableBoxes();
 }
 
+// Box Condition. When will be 'O' and 'X';
 boxes.forEach((box) => {
     box.addEventListener("click", () => {
         if (turn0) {
@@ -34,11 +37,14 @@ boxes.forEach((box) => {
             turn0 = true;
         }
         box.disabled = true;
+        
 
+        // Function For Check who is winner.
         checkWinner();
     });
 });
 
+// Once winner is decided then all box will be disabled.
 const DisableBoxes = () => {
     for (let box of boxes) {
         box.disabled = true;
@@ -59,6 +65,7 @@ const showWinner = (winner) => {
     DisableBoxes();
 }
 
+// this function check who is winner.
 const checkWinner = () => {
     for (let pattern of winPatterns) {
         let pos1val = boxes[pattern[0]].innerText;
@@ -75,6 +82,8 @@ const checkWinner = () => {
 
 }
 
-
+// this is the Reset game button to restart game after winning.
 newGameBtn.addEventListener("click", resetGame);
+
+// this is the Reset game button to reset game while playing.
 resetBtn.addEventListener("click", resetGame);
