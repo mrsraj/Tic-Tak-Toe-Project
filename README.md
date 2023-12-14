@@ -1,3 +1,3 @@
 # Tic tak toe Game.
 
-This has build using HTML, CSS and JAVASCRIPT
+This Game has built using HTML, CSS and JAVASCRIPT
